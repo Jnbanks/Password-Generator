@@ -83,6 +83,24 @@ function generatePassword(){
         }
       }
 
+      // //produce random number within the size of the characterPool
+      //find the matching character
+      //add this character to the passWord
+      //repeat the above process until the passWord.length = the numberCharacters.length
+
+      function makePassword () {
+        while (passWord.length < numberCharacters) {
+          newRando();
+          passWord.push(characterPool(rando));
+          console.log(passWord);
+        }
+    
+      }
+    
+      function newRando (rando) {
+        var rando = Math.floor(Math.random() * characterPool.length);
+        console.log(rando);
+      }
     
   //What needs to happen now is a function that checks the length of the characterPool. If it's "", then the user will be taken back to the first character type.
 
@@ -96,14 +114,20 @@ function generatePassword(){
   //   }
   // }
 
-  function makePassword (passWord) {
-      var rando = Math.floor(Math.random() * characterPool.length);
-      for (var i = 0; i < numberCharacters; i++) { 
-        passWord.push(rando);
-        console.log(passWord);
-      } 
-  } 
+  // function makePassword (passWord) {
+  //   for (var i = 0; i < numberCharacters; i++) { 
+  //       var rando = Math.floor(Math.random() * characterPool.length);
+  //       passWord.push(rando);
+  //       console.log(passWord);
+  //     } 
+  // } 
       
+  // function makePassword (passWord, characterPool) {
+  //   var rando = Math.floor(Math.random() * characterPool.length);
+  //   for (var i = 0; i < numberCharacters; i++) {
+
+  //   }
+  // }
   
 
 
