@@ -5,9 +5,9 @@ function generatePassword(){
     const numCase = [0,1,2,3,4,5,6,7,8,9];
     const specialCase = ['~','`','!','@','#','$','%','^','&','*','(',')',')','?','=','-','_','+'];
    
-    const characterPool = [];
+    var characterPool = [];
 
-    const passWord = [];
+    //const passWord = [];
     numberCharacters = 0;
 
     var passLowCase = true;
@@ -88,19 +88,16 @@ function generatePassword(){
       //add this character to the passWord
       //repeat the above process until the passWord.length = the numberCharacters.length
 
-      function makePassword () {
-        while (passWord.length < numberCharacters) {
-          newRando();
-          passWord.push(characterPool(rando));
+      function makePassword (passWord) {
+        var passWord = [];
+        while(passWord.length < numberCharacters) {
+          var rando = Math.floor(Math.random() * characterPool.length);
+          var newRando = characterPool[rando];
+          passWord.push(newRando);
           console.log(passWord);
         }
-    
       }
-    
-      function newRando (rando) {
-        var rando = Math.floor(Math.random() * characterPool.length);
-        console.log(rando);
-      }
+
     
   //What needs to happen now is a function that checks the length of the characterPool. If it's "", then the user will be taken back to the first character type.
 
