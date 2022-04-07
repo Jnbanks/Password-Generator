@@ -8,7 +8,7 @@ function generatePassword(){
     var characterPool = [];
 
     //const passWord = [];
-    numberCharacters = 0;
+    var numberCharacters = 0;
 
     var passLowCase = true;
     var passUpCase = true;
@@ -21,7 +21,7 @@ function generatePassword(){
        }
       
 
-      function checkLength(passLength) {
+      function checkLength() {
         var passLength = prompt('Choose password length. Mimimum 8, Maximum 128 characters.')
         if (passLength >= 8 && passLength <= 128) {
         numberCharacters + passLength;  
@@ -32,7 +32,7 @@ function generatePassword(){
         return checkLength();
         }
       }
-      function lowCaseChoice(passLowCase) {
+      function lowCaseChoice() {
         passLowCase = confirm('Would you like to include lowercase letters?')
         if (passLowCase) {
           characterPool.push('q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m');
@@ -44,7 +44,7 @@ function generatePassword(){
         }
       }
 
-      function upCaseChoice(passUpCase) {
+      function upCaseChoice() {
         passUpCase = confirm('Would you like to include uppercase letters?')
         if (passUpCase) {
          characterPool.push('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
@@ -56,7 +56,7 @@ function generatePassword(){
         }
       }
 
-      function numChoice(passNum) {
+      function numChoice() {
         passNum = confirm('Would you like to include numbers?')
         if (passNum) {
           characterPool.push(0,1,2,3,4,5,6,7,8,9);
@@ -66,7 +66,7 @@ function generatePassword(){
         }
       }
 
-      function specialChoice(passSpecial) {
+      function specialChoice() {
         passSpecial = confirm('Would you like to include special characters? (@#!)')
         if (passSpecial) {
           characterPool.push('~','`','!','@','#','$','%','^','&','*','(',')',')','?','=','-','_','+');
@@ -76,7 +76,7 @@ function generatePassword(){
         console.info(characterPool);
         } 
         else {
-          makePassword();
+          checkPool();
           console.log(characterPool.length);
         console.log(typeof characterPool);
         console.info(characterPool);
@@ -88,7 +88,16 @@ function generatePassword(){
       //add this character to the passWord
       //repeat the above process until the passWord.length = the numberCharacters.length
 
-      function makePassword (passWord) {
+      function checkPool () {
+        if (characterPool.length <= 1) {
+          alert("You need to select at least one character type, the more types, the more secure");
+          lowCaseChoice();
+        } else {
+          makePassword();
+        }
+      }
+
+      function makePassword () {
         var passWord = [];
         while(passWord.length < numberCharacters) {
           var rando = Math.floor(Math.random() * characterPool.length);
