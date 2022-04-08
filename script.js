@@ -8,6 +8,7 @@ function generatePassword(){
     var passUpCase = true;
     var passNum = true;
     var passSpecial = true;
+    var finalPassword;
   
 
        //if (generateBtn = true) {
@@ -91,15 +92,16 @@ function generatePassword(){
           passWord.push(newRando);
         }
         console.log(passWord);
-        let finalPassword=passWord.toString();
+        finalPassword=passWord.join("");
         console.log(finalPassword);
+        //alert(finalPassword);
         ///////Turn this into a string-------------------------
         
         //how to get this password on the screen??????????
       }
-    
+    return finalPassword
 //////////Do not edit below this line////////////
-    return "password"
+    return "Password"
 }
   
   
