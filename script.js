@@ -1,12 +1,6 @@
 function generatePassword(){
-    
-    const upCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    const lowCase = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
-    const numCase = [0,1,2,3,4,5,6,7,8,9];
-    const specialCase = ['~','`','!','@','#','$','%','^','&','*','(',')',')','?','=','-','_','+'];
    
     var characterPool = [];
-
     //const passWord = [];
     var numberCharacters = 0;
 
@@ -16,15 +10,15 @@ function generatePassword(){
     var passSpecial = true;
   
 
-       if (generateBtn = true) {
+       //if (generateBtn = true) {
          checkLength();
-       }
+       //}
       
 
       function checkLength() {
         var passLength = prompt('Choose password length. Mimimum 8, Maximum 128 characters.')
         if (passLength >= 8 && passLength <= 128) {
-        numberCharacters + passLength;  
+        numberCharacters = passLength;  
 
         lowCaseChoice();
         } else {
@@ -37,8 +31,6 @@ function generatePassword(){
         if (passLowCase) {
           characterPool.push('q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m');
           upCaseChoice();
-          //var lowCaseRando = Math.floor(Math.random() * passLength);
-          //console.log(lowCaseRando);
         } else {
           upCaseChoice();
         }
@@ -49,8 +41,6 @@ function generatePassword(){
         if (passUpCase) {
          characterPool.push('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
           numChoice();
-        // } else if (passUpCase) {
-        //   characterPool = characterBank.concat(upCase);
         } else {
           numChoice();
         }
@@ -71,26 +61,21 @@ function generatePassword(){
         if (passSpecial) {
           characterPool.push('~','`','!','@','#','$','%','^','&','*','(',')',')','?','=','-','_','+');
           makePassword();
-          console.log(characterPool.length);
-        console.log(typeof characterPool);
-        console.info(characterPool);
+        // console.log(characterPool.length);
+        // console.log(typeof characterPool);
+        // console.info(characterPool);
         } 
         else {
           checkPool();
-          console.log(characterPool.length);
-        console.log(typeof characterPool);
-        console.info(characterPool);
+        // console.log(characterPool.length);
+        // console.log(typeof characterPool);
+        // console.info(characterPool);
         }
       }
 
-      // //produce random number within the size of the characterPool
-      //find the matching character
-      //add this character to the passWord
-      //repeat the above process until the passWord.length = the numberCharacters.length
-
       function checkPool () {
         if (characterPool.length <= 1) {
-          alert("You need to select at least one character type, the more types, the more secure");
+          alert("You need to select at least one character type. The more types, the more secure");
           lowCaseChoice();
         } else {
           makePassword();
@@ -98,88 +83,20 @@ function generatePassword(){
       }
 
       function makePassword () {
+        console.log(numberCharacters);
         var passWord = [];
         while(passWord.length < numberCharacters) {
           var rando = Math.floor(Math.random() * characterPool.length);
           var newRando = characterPool[rando];
           passWord.push(newRando);
-          console.log(passWord);
         }
+        console.log(passWord);
+        let finalPassword=passWord.toString();
+        console.log(finalPassword);
+        ///////Turn this into a string-------------------------
+        
+        //how to get this password on the screen??????????
       }
-
-    
-  //What needs to happen now is a function that checks the length of the characterPool. If it's "", then the user will be taken back to the first character type.
-
-  //Next we need the password generator, which must include all chosen types. How to do this? We need to run a test based on their type choices, or not. chances are each type will be represented, letters with heavier weight over symbols and numbers.
-  // function checkPool (characterPool) {
-  //   if (characterPool = null) {
-  //     makePassword();
-  //   } else {
-  //     alert("You did not select any character types!")
-  //     lowCaseChoice();
-  //   }
-  // }
-
-  // function makePassword (passWord) {
-  //   for (var i = 0; i < numberCharacters; i++) { 
-  //       var rando = Math.floor(Math.random() * characterPool.length);
-  //       passWord.push(rando);
-  //       console.log(passWord);
-  //     } 
-  // } 
-      
-  // function makePassword (passWord, characterPool) {
-  //   var rando = Math.floor(Math.random() * characterPool.length);
-  //   for (var i = 0; i < numberCharacters; i++) {
-
-  //   }
-  // }
-  
-
-
-    //
-    //console.log(names[0]);
-    //generate random number within length of selected character bank
-    // let rando = Math.floor(Math.random() * characterPool.length);
-    //select that piece of data from the character bank array using the random number to determine the index number of that piece of data
-    //add that piece of data (character) to the array of the password
-    // We use a for-loop to execute code more than once
-    //repeat the above until each data place in the password array is full
-    //console.log(names[rando]);
-    //If password.length < userPass.length, then repeat the character addition function
-
-// for (var i = 0; i < 5; i++) {
-//   // This is the block of code that will run each time
-//   console.log("This is the current value of i: " + i + ".");
-// }
-
-// // For-loops are often used to iterate over arrays
-// var zooAnimals = ["Bears", "Giraffes", "Penguins", "Meerkats"];
-
-// //To determine how many times the loop should execute, we use the array's length
-// for (var i = 0; i < zooAnimals.length; i++) { 
-//   console.log("I am going to zoo to see " + zooAnimals[i] + ".");
-// }
-
-//     // Return stops the execution of a function
-//   return;
-
-//   // NOTICE THE FORMAT, variables first, then functions defined, then order of functions to be carried out.
-//   var hello = "Hello"; 
-
-// function sayHello() {
-//   console.log(hello);
-//   return;
-// }
-
-// var sayHelloAgain = function () {
-//   console.log(hello);
-//   return;
-// };
-
-// sayHello();
-// sayHelloAgain();
-    
     
 //////////Do not edit below this line////////////
     return "password"
